@@ -11,8 +11,7 @@
 
 ```
 hw3/
-├── car_price_prediction.ipynb   ← 主程式（Jupyter Notebook）★
-├── car_price_prediction.py      ← 純 Python 腳本版
+├── car_price_prediction.py      ← 主程式
 ├── CarPrice_Assignment.csv      ← 原始資料集（請手動下載）
 ├── car_price_model.pkl          ← 訓練完成的模型（執行後產生）
 ├── README.md                    ← 本文件
@@ -46,17 +45,11 @@ pip install pandas numpy matplotlib seaborn scikit-learn statsmodels scipy jobli
 
 > ⚠ **注意**：若本地無資料檔，Notebook 會自動嘗試從備用網址下載。
 
-### 3. 執行 Notebook
+### 3. 執行 car_price_prediction.py
 
 ```bash
 cd hw3
-jupyter notebook car_price_prediction.ipynb
-```
-
-或使用 JupyterLab：
-
-```bash
-jupyter lab car_price_prediction.ipynb
+python car_price_prediction.py
 ```
 
 ---
@@ -159,7 +152,7 @@ sk_model = LinearRegression().fit(X_train_final, y_train)
 | MAE | — | — |
 | MAPE | — | — |
 
-> 📝 實際數值請執行 Notebook 查看（因特徵選擇結果可能略有不同）
+> 📝 實際數值請執行 car_price_prediction.py 查看（因特徵選擇結果可能略有不同）
 
 #### 視覺化圖表（共 10 張）
 
