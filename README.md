@@ -1,4 +1,4 @@
-# 🚗 汽車價格預測 — 多元線性回歸（CRISP-DM 流程）
+# 🚗 汽車價格預測 — 多元線性回歸（CRISP-DM 流程 & 成果展示）
 
 > **AIoT 機器學習作業 HW3**  
 > 資料集：[Car Price Prediction — Kaggle](https://www.kaggle.com/datasets/hellbuoy/car-price-prediction)  
@@ -11,21 +11,20 @@
 
 ```
 hw3/
-├── car_price_prediction.py      ← 主程式（Python 腳本）★
+├── car_price_prediction.py      ← 主程式（Python 腳本）
 ├── CarPrice_Assignment.csv      ← 原始資料集（請手動下載）
 ├── car_price_model.pkl          ← 訓練完成的模型（執行後產生）
 ├── README.md                    ← 專案說明文件
 ├── log.md                       ← 開發日誌（對話流程紀錄）
 │
-└── figures/                     ← 所有輸出圖表（共 10 張）
+└── figures/                     ← 所有輸出圖表（共 9 張）
     ├── eda_price_distribution.png    ← Phase 2：price 分佈圖
     ├── eda_correlation.png           ← Phase 2：特徵相關性熱力圖
     ├── eda_categorical_boxplots.png  ← Phase 2：類別特徵箱型圖
     ├── eda_scatter_plots.png         ← Phase 2：數值特徵散佈圖
-    ├── eda_brand_price.png           ← Phase 3：品牌平均售價
     ├── feature_selection_vif.png     ← Phase 3：VIF 多重共線性
     ├── model_coefficients.png        ← Phase 4：迴歸係數圖
-    ├── eval_actual_vs_predicted.png  ← Phase 5：預測結果圖（含信賴區間）★
+    ├── eval_actual_vs_predicted.png  ← Phase 5：預測結果圖（含信賴區間）
     ├── eval_residual_diagnostics.png ← Phase 5：殘差診斷四宮格
     └── eval_metrics_comparison.png   ← Phase 5：指標比較圖
 ```
@@ -84,6 +83,20 @@ python car_price_prediction.py
 | `carwidth`    | r ≈ 0.76 | 車寬與車輛尺寸相關 |
 | `citympg`     | r ≈ -0.69 | 油耗高（省油）反映小型車 |
 
+**Phase 2 成果展示**
+
+![eda_price_distribution](figures/eda_price_distribution.png)
+price 分佈圖
+
+![eda_correlation](figures/eda_correlation.png)
+特徵相關性熱力圖
+
+![eda_categorical_boxplots](figures/eda_categorical_boxplots.png)
+類別特徵箱型圖
+
+![eda_scatter_plots](figures/eda_scatter_plots.png)
+數值特徵散佈圖
+
 ---
 
 ### Phase 3 — Data Preparation（資料準備）
@@ -117,6 +130,11 @@ brand_fix = {'maxda': 'mazda', 'porcshce': 'porsche',
 RFE 保留（15 個）→ p-value 再篩選 → 最終 N 個（10~20）
 ```
 
+**Phase 3 成果展示**
+
+![feature_selection_vif](figures/feature_selection_vif.png) 
+VIF 多重共線性
+
 ---
 
 ### Phase 4 — Modeling（建模）
@@ -136,6 +154,11 @@ print(ols_model.summary())
 # sklearn（預測）
 sk_model = LinearRegression().fit(X_train_final, y_train)
 ```
+
+**Phase 4 成果展示**
+
+![](figures/model_coefficients.png)
+迴歸係數條形圖
 
 ---
 
@@ -180,6 +203,17 @@ sns.regplot(
 
 > **解讀**：淺藍色陰影為 95% 信賴區間，代表若重複抽樣建模，有 95% 的機率回歸線會落在此區域內。
 
+**Phase 5 成果展示**
+
+![](figures/eval_actual_vs_predicted.png)
+預測結果圖（含信賴區間）
+
+![](figures/eval_residual_diagnostics.png)
+殘差診斷四宮格
+
+![](figures/eval_metrics_comparison.png)
+訓練 vs 測試指標比較
+
 ---
 
 ### Phase 6 — Deployment（部署）
@@ -223,23 +257,5 @@ JSON Response: { predicted_price: 18500.0, ci_lower: 15200.0, ci_upper: 21800.0 
 | 統計檢驗 | `scipy.stats` |
 
 ---
-
-## ✅ 作業檢查清單
-
-- [x] **Phase 1**：說明商業價值（車廠定價 / 二手車平台 / 保險）
-- [x] **Phase 2**：EDA（分佈、相關性、箱型圖、散佈圖）
-- [x] **Phase 2**：檢查缺失值 ✅（本資料集無缺失值）
-- [x] **Phase 2**：特別分析 `CarName` 欄位（字串解析）
-- [x] **Phase 3**：從 `CarName` 萃取品牌 + 修正拼字錯誤
-- [x] **Phase 3**：One-Hot Encoding（fueltype, carbody 等）
-- [x] **Phase 3**：數值標準化（Z-Score）
-- [x] **Phase 3** ⭐：特徵選擇（RFE + p-value），最終特徵數 **嚴格在 10~20 個**
-- [x] **Phase 3**：說明保留與淘汰的特徵
-- [x] **Phase 4**：使用 `statsmodels` 查看 p-value 與詳細報表
-- [x] **Phase 5**：計算 RMSE、R²、MAE、MAPE
-- [x] **Phase 5** ⭐：繪製實際值 vs 預測值散佈圖
-- [x] **Phase 5** ⭐：加上 **95% 信賴區間**（`seaborn.regplot ci=95`）
-- [x] **Phase 6**：部署場景說明（API 架構圖 + 未來優化）
-- [x] **README.md**：完整流程與成果整理
 
 ---
