@@ -12,8 +12,8 @@
 ```
 hw3/
 ├── car_price_prediction.py      ← 主程式
-├── CarPrice_Assignment.csv      ← 原始資料集（請手動下載）
-├── car_price_model.pkl          ← 訓練完成的模型（執行後產生）
+├── CarPrice_Assignment.csv      ← 原始資料集
+├── car_price_model.pkl          ← 訓練完成的模型
 ├── README.md                    ← 本文件
 │
 └── figures/                     ← 所有輸出圖表（共 10 張）
@@ -42,8 +42,6 @@ pip install pandas numpy matplotlib seaborn scikit-learn statsmodels scipy jobli
 ### 2. 資料集下載
 
 前往 [Kaggle Car Price Prediction](https://www.kaggle.com/datasets/hellbuoy/car-price-prediction) 下載 `CarPrice_Assignment.csv`，放置於 `hw3/` 資料夾。
-
-> ⚠ **注意**：若本地無資料檔，Notebook 會自動嘗試從備用網址下載。
 
 ### 3. 執行 car_price_prediction.py
 
