@@ -12,7 +12,6 @@
 ```
 hw3/
 ├── car_price_prediction.py      ← 主程式（Python 腳本）★
-├── car_price_prediction.ipynb   ← 主程式（Jupyter Notebook）★
 ├── CarPrice_Assignment.csv      ← 原始資料集（請手動下載）
 ├── car_price_model.pkl          ← 訓練完成的模型（執行後產生）
 ├── README.md                    ← 專案說明文件
