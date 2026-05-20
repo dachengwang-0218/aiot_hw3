@@ -11,10 +11,12 @@
 
 ```
 hw3/
-├── car_price_prediction.py      ← 主程式
-├── CarPrice_Assignment.csv      ← 原始資料集
-├── car_price_model.pkl          ← 訓練完成的模型
-├── README.md                    ← 本文件
+├── car_price_prediction.py      ← 主程式（Python 腳本）★
+├── car_price_prediction.ipynb   ← 主程式（Jupyter Notebook）★
+├── CarPrice_Assignment.csv      ← 原始資料集（請手動下載）
+├── car_price_model.pkl          ← 訓練完成的模型（執行後產生）
+├── README.md                    ← 專案說明文件
+├── log.md                       ← 開發日誌（對話流程紀錄）
 │
 └── figures/                     ← 所有輸出圖表（共 10 張）
     ├── eda_price_distribution.png    ← Phase 2：price 分佈圖
