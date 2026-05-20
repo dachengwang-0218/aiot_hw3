@@ -175,7 +175,7 @@ ax2.set_xlabel("log(Price + 1)")
 ax2.set_ylabel("Frequency")
 
 plt.tight_layout()
-plt.savefig("eda_price_distribution.png", bbox_inches='tight')
+plt.savefig("figures/eda_price_distribution.png", bbox_inches='tight')
 plt.show()
 print("  💾 儲存：eda_price_distribution.png")
 
@@ -206,7 +206,7 @@ axes[1].set_title("Pearson Correlation with Price", fontsize=12)
 axes[1].set_xlabel("Pearson r")
 
 plt.tight_layout()
-plt.savefig("eda_correlation.png", bbox_inches='tight')
+plt.savefig("figures/eda_correlation.png", bbox_inches='tight')
 plt.show()
 print("  💾 儲存：eda_correlation.png")
 
@@ -226,7 +226,7 @@ for i, col in enumerate(cat_to_plot):
     axes[i].tick_params(axis='x', rotation=30, labelsize=8)
 
 plt.tight_layout()
-plt.savefig("eda_categorical_boxplots.png", bbox_inches='tight')
+plt.savefig("figures/eda_categorical_boxplots.png", bbox_inches='tight')
 plt.show()
 print("  💾 儲存：eda_categorical_boxplots.png")
 
@@ -246,7 +246,7 @@ for i, feat in enumerate(num_features):
     axes[i].set_ylabel("price" if i == 0 else "", fontsize=8)
 
 plt.tight_layout()
-plt.savefig("eda_scatter_plots.png", bbox_inches='tight')
+plt.savefig("figures/eda_scatter_plots.png", bbox_inches='tight')
 plt.show()
 print("  💾 儲存：eda_scatter_plots.png")
 
@@ -466,7 +466,7 @@ ax.set_title("Phase 3 -- VIF Multicollinearity Check (Final Features)", fontsize
 ax.set_xlabel("VIF Score", fontsize=11)
 ax.legend()
 plt.tight_layout()
-plt.savefig("feature_selection_vif.png", bbox_inches='tight')
+plt.savefig("figures/feature_selection_vif.png", bbox_inches='tight')
 plt.show()
 print("  💾 儲存：feature_selection_vif.png")
 
@@ -524,7 +524,7 @@ ax.axvline(0, color='black', linewidth=0.8, linestyle='--')
 ax.set_title("Phase 4 -- Regression Coefficients (Standardized Features)", fontsize=13, fontweight='bold')
 ax.set_xlabel("Coefficient Value (Standardized)", fontsize=11)
 plt.tight_layout()
-plt.savefig("model_coefficients.png", bbox_inches='tight')
+plt.savefig("figures/model_coefficients.png", bbox_inches='tight')
 plt.show()
 print("  💾 儲存：model_coefficients.png")
 
@@ -644,7 +644,7 @@ ax.text(
 
 ax.legend(fontsize=10)
 plt.tight_layout()
-plt.savefig("eval_actual_vs_predicted.png", bbox_inches='tight')
+plt.savefig("figures/eval_actual_vs_predicted.png", bbox_inches='tight')
 plt.show()
 print("  💾 儲存：eval_actual_vs_predicted.png")
 
@@ -683,7 +683,7 @@ axes[1, 1].set_xlabel("Predicted Price")
 axes[1, 1].set_ylabel("sqrt(|Standardized Residuals|)")
 
 plt.tight_layout()
-plt.savefig("eval_residual_diagnostics.png", bbox_inches='tight')
+plt.savefig("figures/eval_residual_diagnostics.png", bbox_inches='tight')
 plt.show()
 print("  💾 儲存：eval_residual_diagnostics.png")
 
@@ -726,7 +726,7 @@ for i, (tv, dv) in enumerate(zip(train_err, test_err)):
     axes[1].text(i + width/2, dv + 50, f'{dv:,.0f}', ha='center', va='bottom', fontsize=8)
 
 plt.tight_layout()
-plt.savefig("eval_metrics_comparison.png", bbox_inches='tight')
+plt.savefig("figures/eval_metrics_comparison.png", bbox_inches='tight')
 plt.show()
 print("  💾 儲存：eval_metrics_comparison.png")
 

@@ -17,16 +17,17 @@ hw3/
 ├── car_price_model.pkl          ← 訓練完成的模型（執行後產生）
 ├── README.md                    ← 本文件
 │
-├── eda_price_distribution.png   ← Phase 2：price 分佈圖
-├── eda_correlation.png          ← Phase 2：特徵相關性熱力圖
-├── eda_categorical_boxplots.png ← Phase 2：類別特徵箱型圖
-├── eda_scatter_plots.png        ← Phase 2：數值特徵散佈圖
-├── eda_brand_price.png          ← Phase 3：品牌平均售價
-├── feature_selection_vif.png    ← Phase 3：VIF 多重共線性
-├── model_coefficients.png       ← Phase 4：迴歸係數圖
-├── eval_actual_vs_predicted.png ← Phase 5：預測結果圖（含信賴區間）★
-├── eval_residual_diagnostics.png← Phase 5：殘差診斷四宮格
-└── eval_metrics_comparison.png  ← Phase 5：指標比較圖
+└── figures/                     ← 所有輸出圖表（共 10 張）
+    ├── eda_price_distribution.png    ← Phase 2：price 分佈圖
+    ├── eda_correlation.png           ← Phase 2：特徵相關性熱力圖
+    ├── eda_categorical_boxplots.png  ← Phase 2：類別特徵箱型圖
+    ├── eda_scatter_plots.png         ← Phase 2：數值特徵散佈圖
+    ├── eda_brand_price.png           ← Phase 3：品牌平均售價
+    ├── feature_selection_vif.png     ← Phase 3：VIF 多重共線性
+    ├── model_coefficients.png        ← Phase 4：迴歸係數圖
+    ├── eval_actual_vs_predicted.png  ← Phase 5：預測結果圖（含信賴區間）★
+    ├── eval_residual_diagnostics.png ← Phase 5：殘差診斷四宮格
+    └── eval_metrics_comparison.png   ← Phase 5：指標比較圖
 ```
 
 ---
