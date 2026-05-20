@@ -242,5 +242,3 @@ JSON Response: { predicted_price: 18500.0, ci_lower: 15200.0, ci_upper: 21800.0 
 - [x] **README.md**：完整流程與成果整理
 
 ---
-
-*作業截止日期：請確認課程規定。執行前請先下載資料集至 `hw3/` 資料夾。*
