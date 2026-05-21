@@ -52,7 +52,7 @@ python car_price_prediction.py
 
 ---
 
-## 📚 CRISP-DM 六大流程說明
+## 📚 CRISP-DM 六大流程說明(各階段成果都放在各段結尾)
 
 ### Phase 1 — Business Understanding（商業理解）
 
@@ -205,7 +205,7 @@ sns.regplot(
 **Phase 5 成果展示**
 
 ![](figures/eval_actual_vs_predicted.png)
-預測結果圖（含信賴區間）
+⭐️⭐️⭐️ 預測結果圖（含信賴區間）
 
 ![](figures/eval_residual_diagnostics.png)
 殘差診斷四宮格
