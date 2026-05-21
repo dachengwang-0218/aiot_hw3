@@ -52,7 +52,7 @@ python car_price_prediction.py
 
 ---
 
-## 📚 CRISP-DM 六大流程說明(各階段成果都放在各段結尾)
+## 📚 CRISP-DM 六大流程說明(各階段成果都放各在段結尾)
 
 ### Phase 1 — Business Understanding（商業理解）
 
@@ -172,6 +172,7 @@ sk_model = LinearRegression().fit(X_train_final, y_train)
 | Adjusted R² | 0.934 | 0.805|
 | RMSE(USD) | 1,891 | 3,150 |
 | MAE(USD) | 1,402 | 2,302 |
+| MAPE | 11.85% | 18.62% |
 
 > 📝 實際數值請執行 car_price_prediction.py 查看（因特徵選擇結果可能略有不同）
 
@@ -599,3 +600,58 @@ CRISP-DM 版在預處理階段額外產出了四張關鍵 EDA 圖表（價格分
 最終總結： 身為資深顧問，我強烈推薦企業在涉及核心資產定價時，採用 CRISP-DM 框架。其在資料準備、統計檢定與模型持久化上的嚴謹要求，才是保障商業決策穩定性的唯一途徑。
 
 ---
+
+# 4. 成果展示
+
+## 4.1 模型正確可執行，具特徵選擇與評估
+
+本專案可直接執行 `car_price_prediction.py` 完成完整機器學習流程，包含資料讀取、資料清理、品牌萃取、One-Hot Encoding、數值標準化、特徵選擇、模型訓練、模型評估與圖表輸出。
+
+```bash
+python car_price_prediction.py
+```
+
+特徵選擇採用兩階段方法：先以 RFE 從 60+ 個特徵中初步篩選，再使用 `statsmodels` 的 p-value 檢定保留具統計顯著性的變數。最終保留 15 個特徵，符合 10–20 個特徵的要求。
+
+| 檢查項目 | 完成情況 |
+|---------|---------|
+| 可執行主程式 | ✅ `car_price_prediction.py` |
+| 特徵選擇 | ✅ RFE + p-value 篩選 |
+| 最終特徵數 | ✅ 15 個 |
+| 模型方法 | ✅ Multiple Linear Regression |
+| 評估方式 | ✅ R²、Adjusted R²、RMSE、MAE、MAPE、殘差診斷 |
+
+## 4.2 結果合理、美觀且具有說服力
+
+結果呈現包含資料探索、特徵選擇、模型係數與模型診斷圖，能從不同角度說明模型表現。EDA 圖表用於理解資料分佈與重要變數關係；VIF 圖檢查多重共線性；係數圖呈現不同特徵對車價的影響方向；殘差診斷圖則檢查線性迴歸假設是否合理。
+
+| 圖表 | 說明 |
+|------|------|
+| `eda_price_distribution.png` | 檢查車價分佈與偏態 |
+| `eda_correlation.png` | 呈現數值特徵與價格的相關性 |
+| `eda_categorical_boxplots.png` | 比較類別變數與價格差異 |
+| `feature_selection_vif.png` | 檢查最終特徵的多重共線性 |
+| `model_coefficients.png` | 顯示標準化後迴歸係數大小 |
+| `eval_residual_diagnostics.png` | 檢查殘差分佈、Q-Q plot 與模型診斷 |
+
+![model_coefficients](figures/model_coefficients.png)
+
+![eval_residual_diagnostics](figures/eval_residual_diagnostics.png)
+
+## 4.3 預測結果評估（預測圖、評估指標）
+
+本資料集為 Kaggle Dataset，非正式競賽排行榜題目，因此以預測圖與評估指標呈現模型成果。測試集 R² = 0.8779，已達成 Phase 1 設定的 R² ≥ 0.85 目標。RMSE 約為 3,105 USD，MAE 約為 2,302 USD，MAPE 為 18.62%，表示模型在測試資料上具有可接受的預測能力。
+
+| 指標 | 訓練集 | 測試集 | 解讀 |
+|------|--------|--------|------|
+| R² | 0.9400 | 0.8779 | 測試集解釋力達標 |
+| Adjusted R² | 0.9339 | 0.8046 | 考量特徵數後仍具解釋力 |
+| RMSE | 1,891 USD | 3,105 USD | 平均平方誤差量級合理 |
+| MAE | 1,402 USD | 2,302 USD | 平均絕對誤差可接受 |
+| MAPE | 11.85% | 18.62% | 測試集平均百分比誤差低於 20% |
+
+下圖為測試集實際價格與模型預測價格的比較，並加入 95% 信賴區間。點越接近對角線代表預測越準確，多數樣本分布在對角線附近，顯示模型具備合理的預測效果。
+
+![eval_actual_vs_predicted](figures/eval_actual_vs_predicted.png)
+
+![eval_metrics_comparison](figures/eval_metrics_comparison.png)
